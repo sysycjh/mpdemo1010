@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Primary;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
@@ -29,5 +30,9 @@ public class User {
     @Version
     @TableField(fill=FieldFill.INSERT)
     private Integer version;
+
+    @TableLogic //逻辑删除
+    @TableField(fill = FieldFill.INSERT)
+    private Integer deleted;
 
 }
